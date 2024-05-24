@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purvajon Ki Jankari</title>
+</head>
+<body>
+    <h1>Purvajon Ki Jankari</h1>
+    <form id="infoForm">
+        <label for="name">Aapka Naam:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="ancestor">Purvajon ka Naam:</label><br>
+        <input type="text" id="ancestor" name="ancestor"><br><br>
+        <input type="submit" value="Save">
+    </form>
+    <h2>Saved Information</h2>
+    <ul id="infoList"></ul>
+
+    <script>
+        document.getElementById('infoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var ancestor = document.getElementById('ancestor').value;
+            if(name && ancestor) {
+                var infoList = document.getElementById('infoList');
+                var listItem = document.createElement('li');
+                listItem.textContent = 'Naam: ' + name + ', Purvajon ka Naam: ' + ancestor;
+                infoList.appendChild(listItem);
+                document.getElementById('infoForm').reset();
+            } else {
+                alert('Kripya sabhi fields bharain');
+            }
+        });
+    </script>
+</body>
+      </html>
